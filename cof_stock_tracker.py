@@ -23,6 +23,7 @@ with sync_playwright() as p:
     # Target the price class
     price_element = page.locator(".price-1zj6yB")
     currentPrice = (float(price_element.inner_text()))
+    print("CURRENT PRICE IS " + str(currentPrice))
 
     netProfitOrLoss = (currentPrice * stocksOwned) - monthlyAsppPlusContributions
     profitOrLoss = ""
