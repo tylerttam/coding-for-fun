@@ -23,14 +23,14 @@ with sync_playwright() as p:
     # Target the price class
     price_element = page.locator(".price-1zj6yB")
     currentPrice = (float(price_element.inner_text()))
-    print("CURRENT PRICE IS " + str(currentPrice))
+    print("Current price is $" + str(currentPrice))
 
     netProfitOrLoss = (currentPrice * stocksOwned) - monthlyAsppPlusContributions
     profitOrLoss = ""
     if netProfitOrLoss >= 0:
-        profitOrLoss = "PROFIT"
+        profitOrLoss = "profit"
     else:
-        profitOrLoss = "LOSS"
-    print("NET " + profitOrLoss + " IS " + str(round(netProfitOrLoss, 2)))
+        profitOrLoss = "loss"
+    print("Net " + profitOrLoss + " IS " + str(round(netProfitOrLoss, 2)))
     
     browser.close()
